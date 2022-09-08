@@ -6,10 +6,12 @@ const express = require("express"),
   } = require("@handlebars/allow-prototype-access"),
   methodOverride = require("method-override");
 
- const bodyParser = require("body-parser");
-const app = express();
+const bodyParser = require("body-parser");
 
-app.use(express.static(__dirname + '/public'));
+const app = express();
+const port = process.env.PORT || 3000
+
+app.use(express.static(__dirname + "/public"));
 
 // override with POST having ?_method=DELETE or ?_method=PUT
 app.use(methodOverride("_method"));
@@ -36,9 +38,9 @@ mongoose.connect("mongodb://localhost/reviewed-by-you", {
   useNewUrlParser: true,
 });
 
-const Review = mongoose.model('Review', {
+const Review = mongoose.model("Review", {
   title: String,
-  movieTitle: String
+  movieTitle: String,
 });
 
 // Export app for use in our Tests files
@@ -46,6 +48,6 @@ module.exports = app;
 
 const reviews = require("./controllers/reviews")(app);
 
-app.listen(3000, () => {
-  console.log("App listening on port 3000!");
+app.listen(port, () => {
+  console.log("App listening on port " + port);
 });
