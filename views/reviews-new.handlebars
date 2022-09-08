@@ -1,0 +1,14 @@
+<!-- views/reviews-new.handlebars -->
+
+<div class="row">
+  <div class="col-12">
+    <h2>New Review</h2>
+    <form method="POST" action="/reviews">
+      {{> reviews-form}}
+      <!-- BUTTON -->
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Save Review</button>
+      </div>
+    </form>
+  </div>
+</div>

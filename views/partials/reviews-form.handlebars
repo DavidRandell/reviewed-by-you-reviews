@@ -1,0 +1,73 @@
+<!-- views/partials/reviews-form.handlebars -->
+
+
+<!-- NEW CODE -->
+
+<fieldset>
+  <!-- TITLE -->
+  <div class="form-group">
+    <label for="review-title">Review Heading</label><br>
+    <input class="form-control" id="review-title" type="text" name="title" value="{{review.title}}"/>
+  </div>
+
+  <!-- MOVIE TITLE -->
+  <div class="form-group">
+    <label for="movie-title">Movie Title</label><br>
+    <input class="form-control" id="movie-title" type="text" name="movieTitle" value="{{review.movieTitle}}" />
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="form-group">
+    <label for="review-description">Write your coments...</label><br>
+    <textarea class="form-control" id="review-description" name="description" rows="10" />{{review.description}}</textarea>
+  </div>
+
+    <!-- RATINGS -->
+  <div class="form-group">
+
+  <div>
+        {{!-- <label for="movie-rating">Your Rating</label>
+        <input class="form-control" type="range" id="movie-rating" name="rating"
+            min="0" max="100" value="{{review.movieRating}}"> --}}
+        
+<label class="rating-label" for="movie-rating">
+  Your Rating</label><br>
+  <input id="movie-rating" 
+    class="rating form-control"
+    max="10"
+    oninput="this.style.setProperty('--value', this.value)"
+    step="0.5"
+    type="range"
+    name="movieRating"
+    value="{{review.movieRating}}">
+
+
+
+    </div>
+
+  </div>
+
+  <!-- Date -->
+  <div class="form-group">
+    <div class="row">
+      <div class="col-6"><input class="form-control"  type="text" id="reviewDate" name="date" value="CurrentTime"> </div>
+      <div class="col-6"><input class="form-control"  type="text" id="reviewTime" name="time" value="CurrentDate"></div>
+    </div>
+    
+    
+  </div>
+
+  <script>
+    var d = new Date();
+
+    // Set the value of the "date" field
+    document.getElementById("reviewDate").value = d.toDateString();
+
+    // Set the value of the "time" field
+    var hours = d.getHours();
+    var mins = d.getMinutes();
+    var seconds = d.getSeconds();
+    document.getElementById("reviewTime").value = hours + ":" + mins + ":" + seconds;
+  </script>
+
+</fieldset>

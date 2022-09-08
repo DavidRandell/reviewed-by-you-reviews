@@ -1,0 +1,324 @@
+/* Main CSS Stylesheet */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@200;400&display=swap');
+
+:root {
+    --primary-color: #22254b;
+    --secondary-color: #373b69;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding-bottom: 60px;
+    color: #fff;
+}
+
+.navbar {
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    margin-bottom: 10px;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+h1, h2, h3, h4, p {margin-bottom: 15px;}
+
+h1 {
+    font-size: 45px;
+    line-height: 60px;
+    color: #eee;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 10px;
+ }
+
+ h1 a {color: #eee; text-decoration: none;}
+.logo {width: 60px; margin: 0 10px 0 0; float: left; }
+
+ h2 {
+    font-size: 32px;
+    color: #eee;
+    line-height: 42px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #aaa;
+    line-height: 30px;
+
+}
+
+h3.sectionHeading { width: 100%; font-weight: 100;border-bottom: 1px solid #eee;
+  padding-bottom: 4px;}
+
+a {color: #fff;}
+a:hover {
+    text-decoration: none;
+    color: #eeeeee;
+}
+ 
+
+img.card-img-top {width: 100%;}
+
+form {color: #fff;}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: rgba(255,255,255,.6);;
+    text-align: center;
+    font-size: .8rem;
+    padding: 10px 0;
+  }
+
+.poster {
+    width: 100%;
+    float: right;
+    margin-bottom: 15px;
+}
+
+
+
+p.singleReviews {margin-bottom: 20px;}
+
+.card {background-color: #373b69; color: #fff;}
+.card-text {font-style: italic;}
+
+.errorPage {
+  background-image: url(../images/theatre-seats.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+  font-size: 2rem;;
+  padding-top: 100px;
+}
+
+
+/* Star Rating */
+
+.rating {
+    --dir: right;
+    --fill: gold;
+    --fillbg: rgba(100, 100, 100, 0.15);
+    --heart: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.328l-1.453-1.313q-2.484-2.25-3.609-3.328t-2.508-2.672-1.898-2.883-0.516-2.648q0-2.297 1.57-3.891t3.914-1.594q2.719 0 4.5 2.109 1.781-2.109 4.5-2.109 2.344 0 3.914 1.594t1.57 3.891q0 1.828-1.219 3.797t-2.648 3.422-4.664 4.359z"/></svg>');
+    --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
+    --stars: 10;
+    --starsize: 3rem;
+    --symbol: var(--star);
+    --value: 1;
+    --w: calc(var(--stars) * var(--starsize));
+    --x: calc(100% * (var(--value) / var(--stars)));
+    block-size: var(--starsize);
+    position: relative;
+    touch-action: manipulation;
+    -webkit-appearance: none;
+  }
+  [dir="rtl"] .rating {
+    --dir: left;
+  }
+  .rating::-moz-range-track {
+    background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+    block-size: 100%;
+    mask: repeat left center/var(--starsize) var(--symbol);
+  }
+  .rating::-webkit-slider-runnable-track {
+    background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+    block-size: 100%;
+    mask: repeat left center/var(--starsize) var(--symbol);
+    -webkit-mask: repeat left center/var(--starsize) var(--symbol);
+  }
+  .rating::-moz-range-thumb {
+    height: var(--starsize);
+    opacity: 0;
+    width: var(--starsize);
+  }
+  .rating::-webkit-slider-thumb {
+    height: var(--starsize);
+    opacity: 0;
+    width: var(--starsize);
+    -webkit-appearance: none;
+  }
+  .rating, .rating-label {
+    display: block;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+  .rating-label {
+    margin-block-end: 1rem;
+  }
+  
+  /* NO JS */
+  .rating--nojs::-moz-range-track {
+    background: var(--fillbg);
+  }
+  .rating--nojs::-moz-range-progress {
+    background: var(--fill);
+    block-size: 100%;
+    mask: repeat left center/var(--starsize) var(--star);
+  }
+  .rating--nojs::-webkit-slider-runnable-track {
+    background: var(--fillbg);
+  }
+  .rating--nojs::-webkit-slider-thumb {
+    background-color: var(--fill);
+    box-shadow: calc(0rem - var(--w)) 0 0 var(--w) var(--fill);
+    opacity: 1;
+    width: 1px;
+  }
+  [dir="rtl"] .rating--nojs::-webkit-slider-thumb {
+    box-shadow: var(--w) 0 0 var(--w) var(--fill);
+  }
+
+
+
+  @media screen and (min-width: 768px) {
+    .singleReviewPoster {
+      width: 60%;
+      float: left;
+      margin: 0 20px 20px 0;
+    }
+
+  }  
+/*
+.movie {
+    width: 300px;
+    margin: 1rem auto;
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.movie img {
+    width: 100%;
+
+}
+
+.movie-info {
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+
+}
+
+.movie-poster {margin-bottom: 20px;}
+
+.movie-info h3 {
+    margin-top: 0;
+}
+
+.movie-info span {
+    background-color: var(--primary-color);
+    padding: .25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.movie-info span.green { color: lightgreen;}
+.movie-info span.orange { color: orange;}
+.movie-info span.red { color: red;}
+
+.overview {
+    background-color: #fff;
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+}
+
+.overview h3 {
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+.overview p {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.movie:hover .overview {
+    
+    transform: translateY(0);
+}
+
+
+#main, #reviews {color: #eee; line-height: 1.5rem; padding: 1rem;}
+
+.moviePage h3.tagline {
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.movie-poster {
+    width: 100%;
+}
+
+.moviePage h4 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+}
+
+#reviews h4.sectionHeading { width: 100%; margin: 0 auto; color: #fff; font-weight: 700;border-bottom: 1px solid #eee;
+    padding-bottom: 4px;}
+
+
+
+
+
+
+@media screen and (min-width: 450px) {
+    
+    .movie-poster {
+        width: 45%;
+        float: right;
+        margin: 0 0 20px 20px;
+    }
+    .moviePage h4 {width: 52%;}
+}
+
+
+@media screen and (min-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+    h1 {
+        margin-bottom: 0;
+    }
+    .moviePage h2, .moviePage h3.tagline {
+        text-align: left;
+    }
+    
+    .moviePage h3.tagline {
+        display: inline-block;
+    }
+    .movie-poster {
+        width: 33%;
+    }
+    .moviePage h4 {width: 64%;}
+    
+}
