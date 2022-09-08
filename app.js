@@ -34,7 +34,7 @@ app.set("view engine", "handlebars");
 // MONGO DATABASE
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/reviewed-by-you", {
+mongoose.connect("mongodb+srv://app-reviews-by-you:GUpV3sc48llXG4jc@cluster0.slc1czm.mongodb.net/reviewed-by-you", {
   useNewUrlParser: true,
 });
 
